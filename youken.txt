@@ -1,0 +1,5 @@
+掲示板の要件
+・タイトルはSimple BBS
+・usernameとmessageを送信
+・送信されたusernameとmessageを累積表示
+・名前なしで送信した場合はデフォルト名"名無しさん"
