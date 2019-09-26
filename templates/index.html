@@ -1,22 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>掲示板</title>
 </head>
 <style>
+    body {
+        padding:0;
+        margin:0 auto;
+        width:600px;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    input#inputname{
+        width:550px;
+        margin: 0 auto;
+    }
+    input#inputmassage{
+        width:550px;
+        height:150x;
+        margin: 0 auto;
+    }
+
 </style>
 <body>
 <div class="all">
 <h1>Simple BBS</h1>
 <form method="post">
-    <p>Username :<input id="inputname" name="username" type="text"></p>
-    <p>Message : <input id="inputmassage" name="message" type="text"></p>
+    <p>USERNAME :</p>
+    <p><input id="inputname" name="username" type="text" placeholder="名無しさん"></p>
+    <p>MESSAGE</p>
+    <p><input id="inputmassage" name="message" type="text"></p>
     <p><input type="submit" value="送信"></p>
 </form>
 
     {% for i in list %}
-    <li>{{ i.0 }} : {{ i.1 }}</li>
+    <p class="user">username:{{ i.0 }}</p>
+    <p class="mes">message:{{ i.1 }}</p>
     <hr>
 {% endfor %}
 
