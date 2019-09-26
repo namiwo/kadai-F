@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+</head>
+<body>
+<h1>Simple BBS</h1>
+<form method="post">
+    <input name="username" type="text" placeholder="名無しさん">
+    <input name="message" type="text">
+    <input type="submit" value="送信">
+</form>
+
+{% for i in list %}
+<p class="user">username:{{ i.0 }}</p>
+<p class="mes">message:{{ i.1 }}</p>
+{% endfor %}
+
+</body>
+</html>
