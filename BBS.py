@@ -12,6 +12,8 @@ def index():
     if request.method == "POST":
         username = request.form["username"]
         message = request.form["message"]
+        if username == "":
+            username = "名無しさん"
         list = [username, message]
         with open("message.csv", "a") as f:
             writer = csv.writer(f, lineterminator='\n')
