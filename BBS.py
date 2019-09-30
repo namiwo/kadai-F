@@ -12,6 +12,7 @@ def index():
     if request.method == "POST":
         username = request.form["username"]
         message = request.form["message"]
+        clear = request.form["clear"]
         if username == "":
             username = "名無しさん"
         list = [username, message]
@@ -23,7 +24,12 @@ def index():
             list_body = []
             for row in reader:
                 list_body.append(row)
-        return render_template("index.html", list=list_body)
+        if clear == "clear":
+            with open("message.csv", "w") as f:
+                clear_message = "過去のメッセージを削除しました。リロードしてください。"
+                return render_template("index.html", list=list_body, clear_message=clear_message)
+        else:
+            return render_template("index.html", list=list_body)
 
 
 if __name__ == '__main__':

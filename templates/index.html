@@ -24,22 +24,24 @@
 
 </style>
 <body>
-<div class="all">
 <h1>Simple BBS</h1>
 <form method="post">
     <p>USERNAME :</p>
     <p><input id="inputname" name="username" type="text" placeholder="名無しさん"></p>
     <p>MESSAGE</p>
     <p><input id="inputmassage" name="message" type="text"></p>
+    <p>パスワードを入力して過去の投稿を全削除します: <input type="text" name="clear"></p>
     <p><input type="submit" value="送信"></p>
 </form>
 
-    {% for i in list %}
-    <p class="user">username:{{ i.0 }}</p>
-    <p class="mes">message:{{ i.1 }}</p>
-    <hr>
+{% for i in list %}
+<p class="user">username:{{ i.0 }}</p>
+<p class="mes">message:{{ i.1 }}</p>
+<hr>
 {% endfor %}
 
-</div>
+{% if clear_message %}
+{{ clear_message }}
+{% endif %}
 </body>
 </html>
